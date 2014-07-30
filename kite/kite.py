@@ -63,9 +63,10 @@ class Template(object):
         if type(self.glob) is not str:
             self._from_json(self.glob)
         self.supported_currencies = []
-        for check in range( len(self.glob['cost'])):
-            currency = self.glob['cost'][check]['currency']
-            self.supported_currencies.append(currency)
+        for cost in range(len(self.glob['cost'])):
+            self.supported_currencies.append(
+                self.glob['cost'][cost]['currency']
+                )
         
     def get_cost(self, currency="GBP"):
         """
